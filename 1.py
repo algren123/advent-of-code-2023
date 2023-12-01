@@ -49,6 +49,7 @@ numberMapping = {
 numberRegex = re.compile(r"one|two|three|four|five|six|seven|eight|nine")
 
 def day1Part2():
+    # The plan for this is to turn each string into all the numbers (str + int), and then add them all together
     def getCalibration(string):
         resultString = ""
         currentNumber = ""
@@ -61,6 +62,7 @@ def day1Part2():
                 
                 if (re.search(numberRegex, currentNumber)):
                     resultString += numberMapping[re.search(numberRegex, currentNumber)[0]]
+                    # Since "eighthree" is 83, we need append the last digit of the current number to the result string
                     currentNumber = char
 
         return int(resultString[0] + resultString[-1])
