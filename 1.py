@@ -20,7 +20,7 @@ def day1Part1():
         if digit1 and digit2 == None:
             digit2 = digit1
         
-        return int(digit1 + digit2 if digit2 != None else digit1)
+        return int(digit1 + digit2)
 
     calibrations = []
 
@@ -49,8 +49,6 @@ numberMapping = {
 numberRegex = re.compile(r"one|two|three|four|five|six|seven|eight|nine")
 
 def day1Part2():
-    calibrations = []
-
     def getCalibration(string):
         resultString = ""
         currentNumber = ""
@@ -66,6 +64,8 @@ def day1Part2():
                     currentNumber = char
 
         return int(resultString[0] + resultString[-1])
+    
+    calibrations = []
 
     for doc in calibrationDocument:
         calibrations.append(getCalibration(doc))
